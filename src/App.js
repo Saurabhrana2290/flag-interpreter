@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from 'react';
+var flagsDictionary = {
+  "🇮🇳": "India",
+  "🏁": "Chequered",
+  "🚩": "Triangular",
+  "🎌": "Crossed",
+  "🏴": "Black",
+  "🏳️": "White",
+  "🏳️‍🌈": "Rainbow",
+  "🏳️‍⚧️": "Transgender",
+  "🏴‍☠️": "Pirate",
+}
 function App() {
+  var [flagName, setFlagName] = useState("");
+
+  function onChangeEventHandler(event) {
+    var userInput= event.target.value;
+    flagName=flagsDictionary[userInput];
+    if(flagName===undefined){
+      flagName="Not present in our database";
+      setFlagName(flagName);
+    }else{
+    setFlagName(flagName);
+    }
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Flag Interpreter</h1>
+      <input onChange={onChangeEventHandler} />
+      <div>{flagName}</div>
     </div>
   );
 }
