@@ -7,7 +7,6 @@ var flagsDictionary = {
   "🏴": "Black",
   "🏳️": "White",
   "🏳️‍🌈": "Rainbow",
-  "🏳️‍⚧️": "Transgender",
   "🏴‍☠️": "Pirate",
 }
 var flagsWeKnow = Object.keys(flagsDictionary);
@@ -32,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Flag Interpreter</h1>
+      <h1>Find Your Flag Name!</h1>
       <input id="flag-input" placeholder="Enter flag here!" onChange={onChangeEventHandler} />
       <div id="flag-output">{flagName}</div>
       <h3>Flags We Know</h3>
